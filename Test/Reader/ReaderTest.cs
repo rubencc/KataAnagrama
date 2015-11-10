@@ -57,7 +57,7 @@ namespace Test.Reader
             AssertDic(1, list, expected);
         }
 
-        [TestCategory("User Story 91221"), TestMethod]
+        [TestCategory("User Story 91221"), TestCategory("Bug 66066"), TestMethod]
         public void Inicializar_la_clase_FileReader_con_valor_null()
         {
             try
@@ -70,7 +70,7 @@ namespace Test.Reader
             }
         }
 
-        [TestCategory("User Story 91221"), TestMethod]
+        [TestCategory("User Story 91221"), TestCategory("Bug 66066"), TestMethod]
         public void Inicializar_la_clase_FileReader_con_valor_empty()
         {
             try
