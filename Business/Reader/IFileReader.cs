@@ -4,6 +4,6 @@ namespace Business.Reader
 {
     public interface IFileReader
     {
-        List<string> Load(string fileName);
+        List<string> Load();
     }
 }
