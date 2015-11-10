@@ -95,7 +95,7 @@ namespace Test.Business
 
         private void AssertWords(int count, List<string> anagrams, List<string> expected)
         {
-            Assert.AreEqual(count, anagrams.Count, "El numero de anagramas no es correcto. Deberia ser {0}", count);
+            Assert.AreEqual(count, anagrams.Count, "El numero de palabras no es correcto. Deberia ser {0}", count);
             CollectionAssert.AreEqual(expected, anagrams, "Los elementos no coinciden");
         }
     }

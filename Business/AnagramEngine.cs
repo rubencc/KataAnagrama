@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 namespace Business
 {
@@ -19,20 +20,13 @@ namespace Business
         {
             List<char> inputAsChar = input.ToList();
 
-            return words.FindAll(v => inputAsChar.TrueForAll(v.Contains)).Where(x =>
+            return words.Where(x =>
             {
-                int wordLength = x.Length;
-                int inputLength = inputAsChar.Count;
+                List<char> wordAsChar = x.ToList();
+                wordAsChar.RemoveAll( c => !inputAsChar.Contains(c));
+                string word = String.Concat(wordAsChar);
 
-                for (int i = 0; i < wordLength; i++)
-                {
-                    for (int j = 0; j < inputLength; j++)
-                    {
-                        if (x[i] == inputAsChar[j] && i < j)
-                            return false;
-                    }
-                }
-                return true;
+                return word == input;
             }).ToList();
         }
 
