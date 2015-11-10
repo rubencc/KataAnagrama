@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Business;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Test.Factories;
 
@@ -11,16 +10,31 @@ namespace Test.Business
     [TestClass]
     public class AnagramEngineTest
     {
+
+        private AnagramEngine anagramEngine;
+
+        [TestInitialize]
+        public void Setup()
+        {
+            this.anagramEngine = new AnagramEngine();
+        }
+
+        [TestCleanup]
+        public void Clean()
+        {
+            this.anagramEngine = null;
+        }
+
         [TestCategory("User Story 91221"), TestMethod]
         public void Anagramas_de_roma()
         {
             List<string> dic = DicFactory.GetDic();
 
-            List<char> inputAsChar = "roma".ToList();
+            string input = "roma";
 
             List<string> expected = new List<string>() { "amor", "maro", "mora", "ramo" };
 
-            List<string> anagrams = dic.FindAll(v => inputAsChar.TrueForAll(v.Contains) && v.Length == inputAsChar.Count);
+            List<string> anagrams = this.anagramEngine.GetAnagrams(input, dic);
 
             AssertWords(4, anagrams, expected);
         }
@@ -34,7 +48,7 @@ namespace Test.Business
 
             List<string> expected = new List<string>() { "reroma", "broma"};
 
-            List<string> contains = dic.FindAll(v => v.Contains(input));
+            List<string> contains = this.anagramEngine.GetContains(input, dic);
 
             AssertWords(2, contains, expected);
         }
@@ -44,41 +58,39 @@ namespace Test.Business
         {
             List<string> dic = new List<string>() { "ramo", "armo", "calzada", "broma", "rompa" };
 
-            List<char> inputAsChar = "roma".ToList();
+            string input = "roma";
 
             List<string> expected = new List<string>() { "broma","rompa"};
 
-            List<string> contains = dic.FindAll(v => inputAsChar.TrueForAll(v.Contains)).Where(x =>
-            {
-                int wordLength = x.Length;
-                int inputLength = inputAsChar.Count;
-
-                for (int i = 0; i < wordLength; i++)
-                {
-                    for (int j = 0; j < inputLength; j++)
-                    {
-                        if (x[i] == inputAsChar[j] && i < j)
-                            return false;
-                    }                
-                }
-                return true;
-            }).ToList();
+            List<string> contains = this.anagramEngine.GetContainsCharsInOrder(input, dic);
 
             AssertWords(2, contains, expected);
         }
 
         [TestCategory("User Story 91221"), TestMethod]
-        public void Palabras_que_contienen_los_caractees_de_roma()
+        public void Palabras_que_contienen_los_caracteres_de_roma()
         {
             List<string> dic = new List<string>() { "ramo", "armo", "calzada", "broma", "rompa", "mejorar", "romo" };
 
-            List<char> inputAsChar = "roma".ToList();
+            string input = "roma";
 
             List<string> expected = new List<string>() { "ramo", "armo", "broma", "rompa", "mejorar" };
 
-            List<string> contains = dic.FindAll(v => inputAsChar.TrueForAll(v.Contains));
+            List<string> contains = this.anagramEngine.GetContainsChars(input, dic);
 
             AssertWords(5, contains, expected);
+        }
+
+        [TestCategory("User Story 91221"), TestMethod]
+        public void Anagramas_de_empty()
+        {
+            List<string> dic = DicFactory.GetDic();
+
+            List<string> expected = new List<string>();
+
+            List<string> anagrams = this.anagramEngine.GetAnagrams(string.Empty, dic);
+
+            AssertWords(0, anagrams, expected);
         }
 
         private void AssertWords(int count, List<string> anagrams, List<string> expected)

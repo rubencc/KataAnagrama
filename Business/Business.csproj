@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnagramEngine.cs" />
+    <Compile Include="IAnagramEngine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reader\IFileReader.cs" />
     <Compile Include="Reader\FileReader.cs" />
