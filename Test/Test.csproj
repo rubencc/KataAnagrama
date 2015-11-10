@@ -54,6 +54,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Factories\DicFactory.cs" />
     <Compile Include="Mocks\BaseMock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reader\ReaderTest.cs" />
@@ -68,6 +69,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Dictionary\dic.txt" />
     <Content Include="Dictionary\empty.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -77,6 +79,9 @@
     <Content Include="Dictionary\test.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Business\" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
