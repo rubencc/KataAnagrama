@@ -44,6 +44,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reader\IFileReader.cs" />
     <Compile Include="Reader\FileReader.cs" />
+    <Compile Include="Tracker\Tracker.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UserManagment\UserManagment.csproj">
+      <Project>{750e237f-848d-4196-91eb-1eac926d4619}</Project>
+      <Name>UserManagment</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
