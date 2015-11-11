@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Globalization;
-using System.Net;
-using System.Net.Sockets;
 
 namespace UserManagment
 {
@@ -61,19 +59,7 @@ namespace UserManagment
 
         private string GetIp()
         {
-            IPHostEntry host;
-            string localIP = String.Empty;
-            host = Dns.GetHostEntry(Dns.GetHostName());
-            foreach (IPAddress ip in host.AddressList)
-            {
-                if (ip.AddressFamily == AddressFamily.InterNetwork)
-                {
-                    localIP = ip.ToString();
-                }
-            }
-            return localIP;
-
-
+            return "192.168.1.1";
         }
     }
 }

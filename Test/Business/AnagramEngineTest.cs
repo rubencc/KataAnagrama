@@ -25,7 +25,7 @@ namespace Test.Business
             this.anagramEngine = null;
         }
 
-        [TestCategory("User Story 91221"), TestMethod]
+        [TestCategory("Anagramas"), TestMethod]
         public void Anagramas_de_roma()
         {
             List<string> dic = DicFactory.GetDic();
@@ -39,7 +39,7 @@ namespace Test.Business
             AssertWords(4, anagrams, expected);
         }
 
-        [TestCategory("User Story 91221"), TestMethod]
+        [TestCategory("Anagramas"), TestMethod]
         public void Palabras_que_contienen_roma()
         {
             List<string> dic = new List<string>(){"reroma", "metro", "calzada", "broma"};
@@ -53,7 +53,7 @@ namespace Test.Business
             AssertWords(2, contains, expected);
         }
 
-        [TestCategory("User Story 91221"), TestMethod]
+        [TestCategory("Anagramas"), TestMethod]
         public void Palabras_que_contienen_los_caractees_de_roma_en_el_mismo_orden()
         {
             List<string> dic = new List<string>() { "ramo", "armo", "calzada", "broma", "rompa" };
@@ -67,7 +67,7 @@ namespace Test.Business
             AssertWords(2, contains, expected);
         }
 
-        [TestCategory("User Story 91221"), TestMethod]
+        [TestCategory("Anagramas"), TestMethod]
         public void Palabras_que_contienen_los_caracteres_de_roma()
         {
             List<string> dic = new List<string>() { "ramo", "armo", "calzada", "broma", "rompa", "mejorar", "romo" };
@@ -81,7 +81,7 @@ namespace Test.Business
             AssertWords(5, contains, expected);
         }
 
-        [TestCategory("User Story 91221"), TestMethod]
+        [TestCategory("Anagramas"), TestMethod]
         public void Anagramas_de_empty()
         {
             List<string> dic = DicFactory.GetDic();

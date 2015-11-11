@@ -9,7 +9,7 @@ namespace Test.Reader
     [TestClass]
     public class ReaderTest
     {
-        [TestCategory("User Story 91221"), TestMethod]
+        [TestCategory("Leer fichero"), TestMethod]
         public void Leer_un_fichero()
         {
             FileReader reader = new FileReader("test.txt");
@@ -21,7 +21,7 @@ namespace Test.Reader
             AssertDic(3, list, expected);
         }
 
-        [TestCategory("User Story 91221"), TestMethod]
+        [TestCategory("Leer fichero"), TestMethod]
         public void Leer_un_fichero_que_no_existe()
         {
             FileReader reader = new FileReader("notfound.txt");
@@ -33,7 +33,7 @@ namespace Test.Reader
             AssertDic(0, list, expected);
         }
 
-        [TestCategory("User Story 91221"), TestMethod]
+        [TestCategory("Leer fichero"), TestMethod]
         public void Leer_un_fichero_vacio()
         {
             FileReader reader = new FileReader("empty.txt");
@@ -45,7 +45,7 @@ namespace Test.Reader
             AssertDic(0, list, expected);
         }
 
-        [TestCategory("User Story 98771"), TestMethod]
+        [TestCategory("Leer fichero"), TestMethod]
         public void Leer_un_fichero_con_caracteres_no_validos()
         {
             FileReader reader = new FileReader("otherChars.txt");
@@ -57,7 +57,7 @@ namespace Test.Reader
             AssertDic(1, list, expected);
         }
 
-        [TestCategory("User Story 91221"), TestCategory("Bug 66066"), TestMethod]
+        [TestCategory("Leer fichero"), TestCategory("Bug 66066"), TestMethod]
         public void Inicializar_la_clase_FileReader_con_valor_null()
         {
             try
@@ -70,7 +70,7 @@ namespace Test.Reader
             }
         }
 
-        [TestCategory("User Story 91221"), TestCategory("Bug 66066"), TestMethod]
+        [TestCategory("Leer fichero"), TestCategory("Bug 66066"), TestMethod]
         public void Inicializar_la_clase_FileReader_con_valor_empty()
         {
             try
