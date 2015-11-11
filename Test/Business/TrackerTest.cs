@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Business.Tracker;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -30,6 +31,45 @@ namespace Test.Business
         }
 
         [TestCategory("Tracking"), TestMethod]
+        public void Crear_objeto_con_anagramengine_nulo()
+        {
+            try
+            {
+                Tracker tracker = new Tracker(null, new List<string>(), this.loggerMock.Mock);
+            }
+            catch (Exception ex)
+            {
+                Assert.IsInstanceOfType(ex, typeof(ArgumentNullException));
+            }
+        }
+
+        [TestCategory("Tracking"), TestMethod]
+        public void Crear_objeto_con_interestingwords_nulo()
+        {
+            try
+            {
+                Tracker tracker = new Tracker(this.anagramEngineMock.Mock, null, this.loggerMock.Mock);
+            }
+            catch (Exception ex)
+            {
+                Assert.IsInstanceOfType(ex, typeof(ArgumentNullException));
+            }
+        }
+
+        [TestCategory("Tracking"), TestMethod]
+        public void Crear_objeto_con_logger_nulo()
+        {
+            try
+            {
+                Tracker tracker = new Tracker(this.anagramEngineMock.Mock, null, null);
+            }
+            catch (Exception ex)
+            {
+                Assert.IsInstanceOfType(ex, typeof(ArgumentNullException));
+            }
+        }
+
+        [TestCategory("Tracking"), TestMethod]
         public void Se_detecta_palabra_interesante_en_el_input_arma()
         {
             string input = "arma";
@@ -47,13 +87,13 @@ namespace Test.Business
         }
 
         [TestCategory("Tracking"), TestMethod]
-        public void Se_detecta_palabra_interesante_en_el_resultado_rama()
+        public void Se_detecta_palabra_interesante_en_el_resultado_para_rama()
         {
             string input = "rama";
 
             this.interestingWords.Add("arma");
 
-            List<string> anagrams = new List<string>() {"arma"};
+            List<string> anagrams = new List<string>() { "arma" };
 
             this.anagramEngineMock.SetupGetAnagram(input, anagrams);
 
