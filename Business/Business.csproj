@@ -39,13 +39,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <Compile Include="AnagramEngine.cs" />
     <Compile Include="IAnagramEngine.cs" />
-=======
     <Compile Include="Log\ILogger.cs" />
     <Compile Include="Log\Logger.cs" />
->>>>>>> refs/remotes/origin/master
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reader\IFileReader.cs" />
     <Compile Include="Reader\FileReader.cs" />
