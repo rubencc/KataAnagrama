@@ -1,5 +1,6 @@
 ﻿using Business.Log;
 using Moq;
+using Test.Mocks.Infraestructure;
 
 namespace Test.Mocks
 {
