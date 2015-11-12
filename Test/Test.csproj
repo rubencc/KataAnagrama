@@ -57,8 +57,10 @@
     <Compile Include="Business\AnagramEngineTest.cs" />
     <Compile Include="Business\TrackerTest.cs" />
     <Compile Include="Factories\DicFactory.cs" />
+    <Compile Include="Mocks\Infraestructure\BaseMock.cs" />
+    <Compile Include="Mocks\Infraestructure\FactoryMock.cs" />
+    <Compile Include="Mocks\Infraestructure\MockObject.cs" />
     <Compile Include="Mocks\AnagramEngineMock.cs" />
-    <Compile Include="Mocks\BaseMock.cs" />
     <Compile Include="Mocks\LoggerMock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reader\ReaderTest.cs" />
