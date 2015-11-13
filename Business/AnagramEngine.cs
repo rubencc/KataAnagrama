@@ -8,7 +8,7 @@ namespace Business
         public List<string> GetAnagrams(string input, List<string> words)
         {
             List<char> inputAsChar = input.ToList();
-            return words.FindAll(v => inputAsChar.TrueForAll(v.Contains) && v.Length == inputAsChar.Count);
+            return words.FindAll(v => inputAsChar.TrueForAll(v.Contains) && v.ToList().TrueForAll(input.Contains) && v.Length == inputAsChar.Count);
         }
 
         public List<string> GetContains(string input, List<string> words)
